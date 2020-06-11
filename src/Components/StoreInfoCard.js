@@ -7,6 +7,7 @@ const storeInfoCardStyles = makeStyles((theme) => ({
     root: {
         borderBottom: '1px solid #B0BEC5',
         marginBottom: '20px'
+        
     },    
     storeImg: {
         maxWidth: '700px',

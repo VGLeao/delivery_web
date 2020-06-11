@@ -10,15 +10,11 @@ const paperCardListStyles = makeStyles((theme) => ({
         gridTemplateColumns: 'repeat(auto-fill, 300px)',
         width: '100%',
         justifyContent: 'center'
-        // justifyContent: 'flex-start',
-        // flexWrap: 'wrap',
         
-        
-        // backgroundColor: '#343434'
     }
 }));
 
-const PaperCardList = ({ items }) => {
+const PaperCardList = ({ items, modal }) => {
     const classes = paperCardListStyles();
 
     return (
@@ -33,8 +29,9 @@ const PaperCardList = ({ items }) => {
                                 description = {items[i].description} 
                                 imageThumbURL = {items[i].imageThumbURL}
                                 price = {items[i].price}
+                                modal = {modal}
                                 />
-
+                                
                         );
                     })  
                 }

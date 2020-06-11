@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import FadedModal from './FadedModal';
 
 const paperCardStyles = makeStyles((theme) => ({
     root: {
@@ -48,28 +49,38 @@ const paperCardStyles = makeStyles((theme) => ({
 
 }));
 
-const PaperCard = ({ name, description, imageThumbURL, price}) => {
+const PaperCard = ({ name, description, imageThumbURL, price, modal }) => {
     const classes = paperCardStyles();
 
     var formatter = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     });
-    
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <div className={classes.root}>
-            <Paper className={classes.paper} elevation={1} >
-                <Grid container direction="row" style={{height: "100%"}}>
+            <Paper className={classes.paper} elevation={1} onClick={handleOpen}>
+                <Grid container direction="row" style={{ height: "100%" }}>
                     <Grid container item xs={4} className={classes.imageThumb} alignItems="center" justify="center">
                         <img className={classes.itemThumb} src={imageThumbURL} alt={name}></img>
                     </Grid>
                     <Grid container item xs={8} justify="flex-start">
-                        <Grid item style={{width: "100%"}}>
-                            <Typography className={classes.itemName} style={{marginLeft: '10px'}}>
+                        <Grid item style={{ width: "100%" }}>
+                            <Typography className={classes.itemName} style={{ marginLeft: '10px' }}>
                                 {name}
                             </Typography>
                             <hr className={classes.hr}></hr>
-                            <Typography style={{marginLeft: '10px'}}>
+                            <Typography style={{ marginLeft: '10px' }}>
                                 {description}
                             </Typography>
                         </Grid>
@@ -79,6 +90,9 @@ const PaperCard = ({ name, description, imageThumbURL, price}) => {
                     </Grid>
                 </Grid>
             </Paper>
+            <FadedModal open={open} handleClose={handleClose} handleOpen={handleOpen}>
+            </FadedModal>
+
         </div>
     );
 }
