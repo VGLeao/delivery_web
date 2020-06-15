@@ -11,7 +11,7 @@ const cartStyles = makeStyles ((theme) => ({
         width: '30%',
         justifyContent: 'center',
         alignItems: 'center',
-        boxShadow: '-3px 0 10px -5px rgba(0, 0, 0, 0.3)',
+        boxShadow: '-3px 0 10px -5px rgba(0, 0, 0, 0.3)'
         
     },
     '@media (max-width: 1248px)': {

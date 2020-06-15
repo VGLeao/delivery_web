@@ -3,37 +3,44 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import FadedModal from './FadedModal';
+import FadedDialog from './FadedDialog';
 
 const paperCardStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
         textAlign: 'left',
-        '& > *': {
-            margin: theme.spacing(1),
-            width: theme.spacing(50),
-            height: theme.spacing(16),
-        },
+        width: '50%',
+        // '& > *': {
+        //     margin: theme.spacing(1),
+        //     maxWidth: '100%',
+        //     height: theme.spacing(16),
+        // },
+    },
+    '@media (max-width: 800px)': {
+        root: {
+            width: '100%'
+        }
     },
     paper: {
         padding: theme.spacing(1),
         margin: theme.spacing(1),
-        maxWidth: 300,
-        backgroundColor: '#E8EAF6',
+        width: '100%',
+        border: '1px solid #BDBDBD',
+        // backgroundColor: '#E8EAF6',
         '&:hover': {
-            boxShadow: '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)',
+            boxShadow: '0px 2px 4px -1px #BDBDBD, 0px 4px 5px 0px #BDBDBD, 0px 1px 10px 0px #BDBDBD',
             cursor: 'pointer'
         }
     },
 
     imageThumb: {
-        width: 128,
-        height: 128
+        maxWidth: 128,
+        maxHeight: 128
     },
     itemThumb: {
-        maxWidth: '100%',
-        maxHeight: '100%'
+        width: '100%',
+        height: '100%'
     },
     itemName: {
         fontWeight: 600
@@ -42,14 +49,14 @@ const paperCardStyles = makeStyles((theme) => ({
         border: 0,
         margin: 0,
         marginBottom: '5px',
-        backgroundColor: '#2980b9',
+        backgroundColor: '#d50000',
         height: 1,
         width: '100%'
     }
 
 }));
 
-const PaperCard = ({ name, description, imageThumbURL, price, modal }) => {
+const PaperCard = ({ name, description, imageThumbURL, price, longDescription }) => {
     const classes = paperCardStyles();
 
     var formatter = new Intl.NumberFormat('pt-BR', {
@@ -69,7 +76,7 @@ const PaperCard = ({ name, description, imageThumbURL, price, modal }) => {
 
     return (
         <div className={classes.root}>
-            <Paper className={classes.paper} elevation={1} onClick={handleOpen}>
+            <Paper className={classes.paper} elevation={0} onClick={handleOpen}>
                 <Grid container direction="row" style={{ height: "100%" }}>
                     <Grid container item xs={4} className={classes.imageThumb} alignItems="center" justify="center">
                         <img className={classes.itemThumb} src={imageThumbURL} alt={name}></img>
@@ -90,8 +97,13 @@ const PaperCard = ({ name, description, imageThumbURL, price, modal }) => {
                     </Grid>
                 </Grid>
             </Paper>
-            <FadedModal open={open} handleClose={handleClose} handleOpen={handleOpen}>
-            </FadedModal>
+            <FadedDialog 
+                open={open} 
+                handleClose={handleClose} 
+                handleOpen={handleOpen} name={name} 
+                longDescription={longDescription}
+            >
+            </FadedDialog>
 
         </div>
     );

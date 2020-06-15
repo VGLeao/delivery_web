@@ -6,7 +6,7 @@ let stores = [
         "adress": "Rua bla bla bla",
         "group": {
             "id": 1,
-            "name": "Pizzarias"
+            "name": "Pizzaria"
         }
     },
     {
@@ -16,7 +16,7 @@ let stores = [
         "adress": "Rua bla bla bla",
         "group": {
             "id": 1,
-            "name": "Sorvetes"
+            "name": "Sorveteria"
         }
     },
     {
@@ -25,7 +25,7 @@ let stores = [
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula interdum tortor vel laoreet. Nulla auctor dolor quam, ut cursus quam congue quis. Curabitur quis ante non lorem fermentum pellentesque.",
         "group": {
             "id": 1,
-            "name": "Docerias"
+            "name": "Doceria"
         }
     },
     {
@@ -35,7 +35,7 @@ let stores = [
         "adress": "Rua bla bla bla",
         "group": {
             "id": 1,
-            "name": "Hamburguers"
+            "name": "Hamburgueria"
         }
     }
 ]
