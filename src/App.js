@@ -8,7 +8,6 @@ import Container from '@material-ui/core/Container';
 import SearchAppBar from './Components/Navbar';
 import StoreInfoCard from './Components/StoreInfoCard';
 import Cart from './Components/Cart';
-import FadedDialog from './Components/FadedDialog';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 
@@ -21,7 +20,9 @@ const theme = createMuiTheme({
     },
 });
 
-function App() {
+
+function App () {
+
     return (
         <ThemeProvider theme={theme}>
             <div className="App">

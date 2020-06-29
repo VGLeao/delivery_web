@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import FadedDialog from './FadedDialog';
+import ItemDialog from './ItemDialog';
 
 const paperCardStyles = makeStyles((theme) => ({
     root: {
@@ -56,7 +56,9 @@ const paperCardStyles = makeStyles((theme) => ({
 
 }));
 
-const PaperCard = ({ name, description, imageThumbURL, price, longDescription }) => {
+const PaperCard = ({ item }) => {
+    const { name, description, imageThumbURL, price } = item
+
     const classes = paperCardStyles();
 
     var formatter = new Intl.NumberFormat('pt-BR', {
@@ -97,13 +99,13 @@ const PaperCard = ({ name, description, imageThumbURL, price, longDescription })
                     </Grid>
                 </Grid>
             </Paper>
-            <FadedDialog 
+            <ItemDialog 
                 open={open} 
                 handleClose={handleClose} 
                 handleOpen={handleOpen} name={name} 
-                longDescription={longDescription}
+                item={item}
             >
-            </FadedDialog>
+            </ItemDialog>
 
         </div>
     );
